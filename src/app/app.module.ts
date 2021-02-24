@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
@@ -30,7 +31,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatInputModule,
     MatFormFieldModule,
     MatAutocompleteModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

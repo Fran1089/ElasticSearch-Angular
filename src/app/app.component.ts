@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import {Observable} from 'rxjs';
 import {movie} from "./movie";
 
+import { MatTableDataSource } from '@angular/material/table';
+
 import $ from 'jquery';
 
 @Component({
@@ -19,14 +21,17 @@ export class AppComponent implements AfterViewInit, OnInit {
   aux: string;
 
   movies;
-    
+  listData: MatTableDataSource<any>
+  dataTable;
+  selectedMovie;
+  displayedColumns: string[] = ['name', 'duration', 'date', 'rating', 'type'];
   filteredOptions: Observable<string[]>;
   constructor(private appservice: AppService
     ) {
   }
 
   ngOnInit(): void{
-
+    this.selectedMovie = new Array<movie>();
     this.movies = new Array<movie>();
   }
 
@@ -49,8 +54,10 @@ export class AppComponent implements AfterViewInit, OnInit {
     )
   }
 
-  load(){
-
+  selection(a){
+    this.selectedMovie = new Array<movie>();
+    this.selectedMovie.push(a);
+    this.listData = new MatTableDataSource(this.selectedMovie); 
   }
 
 }
