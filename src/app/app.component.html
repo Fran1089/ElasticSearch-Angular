@@ -1,0 +1,29 @@
+
+<app-navbar></app-navbar>
+
+<div class="container centered">
+    <div class="row">
+        <div class="col">
+            <h1 style="text-align: center;">Buscador Elastic</h1>
+
+
+            <mat-form-field class="search-form field col-12">
+              <input class="col-12" name="search" matInput [(ngModel)]="aux" placeholder="Buscar Pelicula" (keyup)="probando()" [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of movies | filter:aux" [value]="option.title">
+                  {{option.title}} 
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <!--
+            <div class="d-flex autocomplete">   
+                <input id="myInput" class="form-control" type="text" placeholder="Buscar..." [(ngModel)]="aux">
+                <button class="btn btn-primary" name="test" (click)="probando()" >Buscar</button>
+            </div>
+-->
+
+        </div>
+    </div>
+</div>
+
+
